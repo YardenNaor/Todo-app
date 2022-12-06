@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Todo MVC</title>
+</head>
+
+<body onload="onInit()">
+    <h1>Todo MVC</h1>
+<div class="main-container">
+    <section class="todo-filter">filter 
+        <select onchange="onSetFilter(this.value)">
+            <option value="all">All</option>
+            <option value="done">Done</option>
+            <option value="active">Active</option>
+        </select>
+    </section>
+
+    <ul class="todo-list">
+    </ul>
+
+    <div class="sort-container">
+        <section class="todo-filter">sort your todes
+            <select onchange="onSortTodoes(this.value)">
+                <option value="text">Text</option>
+                <option value="created">Created</option>
+                <option value="importance">Importance</option>
+            </select>
+        </section>
+
+        <!-- <form onclick="onSortTodoes(this.value)">
+               
+            <input type="radio" value="text"> 
+            <label for="text">Text</label>
+
+            <input type="radio" value="time"> 
+            <label for="time">Created</label>
+
+            <input type="radio" class="text"> 
+            <label for="text">Text</label>
+        </form> -->
+    </div>
+
+
+    <div class="new-input-container">
+        <form onsubmit="onAddTodo(event)">
+            <input type="text" name="todo-txt" placeholder="What todo?" />
+        </form>
+
+        <section class="importence">Importance level
+            <select class="options">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </section>
+    </div>
+
+
+
+
+    <section class="todo-stat">
+        <h4>Total todos:<span class="total-todos"></span> </h4>
+        <h4>Active todos:<span class="active-todos"></span> </h4>
+    </section>
+</div>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/services/todo-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
